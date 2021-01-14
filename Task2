@@ -1,0 +1,15 @@
+with open('file.txt', 'r') as file:
+    num_str = file.read()
+
+arr_num_str = num_str.split(' ')
+arr_num = list(map(float, arr_num_str))
+max_el = max(arr_num)
+for i in arr_num:
+    if i == 0:
+        arr_num[arr_num.index(i)] = max_el
+print(arr_num)
+arr_num_str = list(map(str, arr_num))
+num_str = ' '.join(arr_num_str)
+
+with open('file.txt', 'w') as file:
+    file.write(num_str)
