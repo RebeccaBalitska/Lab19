@@ -1,0 +1,25 @@
+class General:
+    def __init__(self, file):
+        self.f_path = file
+
+    def enter(self, wname, yweapon, cost, exp):
+        file = open(self.f_path, "a")
+        str_weapon = ":".join([wname, str(yweapon), str(cost), str(exp)])
+        file.write(str_weapon + '\n')
+        file.close()
+
+    def read(self, yweapon):
+        file = open(self.f_path, "r")
+        for line in file:
+            weapon_arr = line.split(':')
+            if weapon_arr[1] == str(yweapon):
+                print(weapon_arr[0])
+
+
+if __name__ == "__main__":
+    gr = General('db.txt')
+
+    gr.enter('ПМ', 2021, 12000, 4)
+    gr.read(2021)
+
+	
