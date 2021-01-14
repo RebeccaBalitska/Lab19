@@ -1,0 +1,31 @@
+base = {
+    'Лана Дель Рей' : {
+        'Born to Die' : ['Born to Die', 'Off to the Races', 'Blue Jeans'],
+        'Norman Fucking Rockwell' : ['Norman Fucking Rockwell', 'Doin\' Time', 'California'],
+        'Lust for Life' : ['Love', 'White Mustang', 'Heroin'],
+    },
+    'Nirvana' : {
+        'Nevermind' : ['Smells Like Teen Spirit', 'In bloom', 'Come as You Are'],
+        'In Utero' : ['Serve the Servants', 'Very ape', 'All Apologies'],
+        'Live At Reading' : ['Breed', 'Drain you', 'Aneurysm']
+    }
+}
+
+while True:
+    print('Виберіть дію:\n1. Вивести всі пісні групи\n2. Вивести всі диски, де є ця пісня')
+    task = input()
+    result = []
+    if task == '1':
+        group = input("Введіть назву групи\співака: ")
+        disks = base[group]
+        for disk in disks:
+            for song in disks[disk]:
+                result.append(song)
+    elif task == '2':
+        set_song = input("Введіть назву пісні: ")
+        for group in base:
+            for disk in base[group]:
+                for song in base[group][disk]:
+                    if song == set_song:
+                        result.append(disk)
+    print(result)
