@@ -1,0 +1,7 @@
+with open('file.txt', 'r') as file:
+    num_str = file.read()
+    arr_num_str = num_str.split(' ')
+    arr_num = list(map(float, arr_num_str))
+    less_zero_arr = [i for i in arr_num if i < 0]
+    maximum = max(less_zero_arr)
+    print(maximum)
